@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -38,6 +39,14 @@ class Event
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
+
+
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $date_evenement;
+
 
     public function __construct()
     {
@@ -111,6 +120,20 @@ class Event
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+
+
+    public function getdate_evenement(): ?DateTime
+    {
+        return $this->date_evenement;
+    }
+
+    public function setdate_evenement(?DateTime $date_evenement): self
+    {
+        $this->date_evenement = $date_evenement;
 
         return $this;
     }
