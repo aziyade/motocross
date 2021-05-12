@@ -56,12 +56,13 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $immatriculation;
+
+    private $licence;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $licence;
+    private $NumeroTel;
 
     public function __construct()
     {
@@ -203,18 +204,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getImmatriculation(): ?string
-    {
-        return $this->immatriculation;
-    }
-
-    public function setImmatriculation(?string $immatriculation): self
-    {
-        $this->immatriculation = $immatriculation;
-
-        return $this;
-    }
-
     public function getLicence(): ?string
     {
         return $this->licence;
@@ -223,6 +212,18 @@ class User implements UserInterface
     public function setLicence(?string $licence): self
     {
         $this->licence = $licence;
+
+        return $this;
+    }
+
+    public function getNumeroTel(): ?string
+    {
+        return $this->NumeroTel;
+    }
+
+    public function setNumeroTel(?string $NumeroTel): self
+    {
+        $this->NumeroTel = $NumeroTel;
 
         return $this;
     }
