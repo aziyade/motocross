@@ -39,6 +39,11 @@ class Event
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $DateEvenement;
+
     public function __construct()
     {
         $this->inscription = new ArrayCollection();
@@ -111,6 +116,18 @@ class Event
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDateEvenement(): ?\DateTimeInterface
+    {
+        return $this->DateEvenement;
+    }
+
+    public function setDateEvenement(\DateTimeInterface $DateEvenement): self
+    {
+        $this->DateEvenement = $DateEvenement;
 
         return $this;
     }
