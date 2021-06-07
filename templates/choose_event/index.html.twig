@@ -33,13 +33,16 @@ background-image: url({{ relative_path('http://localhost/image/imgfond2c.jpg') }
 }
 </style>
 
+
 	<header>
 
-		<h1>  BIENVENUE  href: (nom personne)  </h1>
-		<h2> A quel événement souhaitez-vous participer? </h2>
+		<h1>  BIENVENUE {{ app.user.prenom }} {{ app.user.nom }}  {{ age }}</h1>
 		<br />
-    <a href="{{ relative_path('http://localhost/motocross/public/login') }}" class="btnr btn-success ">  ADULTE </a>
-    <a href="{{ relative_path('http://localhost/motocross/public/register') }}" class="ml-5 btnr btn-success ">JUNIOR</a>
+
+    <div>
+{% if age >= 17 %}
+  
+     <a  class="btnr btn-success ">  ADULTE </a>
     <br>
     <br>
     <br>
@@ -52,7 +55,17 @@ background-image: url({{ relative_path('http://localhost/image/imgfond2c.jpg') }
     <span id="countdown_min" >--</span> minutes
     <span id="countdown_sec" >--</span> secondes
 </div> 
-<br>
+{% endif %}
+
+
+
+  {% if age < 18 %}
+   
+    <a class="ml-5 btnr btn-success ">JUNIOR</a>
+    <br>
+    <br>
+    <br>
+    <br>
   <p>prochain entrainement : le "date" pour la session junior</p>
   <div id="countdown">
     <strong>Temps restant</strong> :
@@ -60,7 +73,16 @@ background-image: url({{ relative_path('http://localhost/image/imgfond2c.jpg') }
     <span id="countdown_hour">--</span> heures
     <span id="countdown_min" >--</span> minutes
     <span id="countdown_sec" >--</span> secondes
+{% endif %}
+
+     <br>
+    <br>
+    <br>  
+    
+
 </div>
+</div> 
+
 <br>
 </div>
 	</header>
