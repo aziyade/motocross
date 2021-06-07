@@ -64,6 +64,11 @@ class User implements UserInterface
      */
     private $NumeroTel;
 
+    /**
+     * @ORM\Column(type="date",nullable=true)
+     */
+    private $age;
+
     public function __construct()
     {
         $this->inscriptions = new ArrayCollection();
@@ -224,6 +229,18 @@ class User implements UserInterface
     public function setNumeroTel(?string $NumeroTel): self
     {
         $this->NumeroTel = $NumeroTel;
+
+        return $this;
+    }
+
+    public function getAge(): ?\DateTimeInterface
+    {
+        return $this->age;
+    }
+
+    public function setAge(\DateTimeInterface $age): self
+    {
+        $this->age = $age;
 
         return $this;
     }

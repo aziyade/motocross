@@ -94,7 +94,7 @@ class SpecialAuthenticator extends AbstractFormLoginAuthenticator implements Pas
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('index'));
+        return new RedirectResponse($this->urlGenerator->generate('choose_event'));
         // apres route admin
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
