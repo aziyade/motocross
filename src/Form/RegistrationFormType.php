@@ -20,11 +20,11 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('nom')
             ->add('prenom')
-            ->add('immatriculation')
+
             ->add('licence')
             
 
-            
+            /*
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -33,6 +33,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+            */
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
