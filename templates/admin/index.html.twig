@@ -3,5 +3,38 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-<h1>JE suis admin</h1>
+
+ <style>
+    body
+    { 
+background-image: url({{ relative_path('./image/imgfond2c.jpg') }});
+    }
+    header
+{
+ background-color: #FFFFFF;
+ height: 520px;
+ border: 1px solid #FFFFFF;
+ text-align: center;
+ margin-top: 20px;
+ padding-top:20px;
+ margin-bottom: 50px; /*marge externe dessous 50px*/
+ padding-left: 20px; /*marge interne droite 12px*/
+ /*word-wrap: break-word; /*force le navigateur à aller à la ligne si phrase trop longue*/
+ overflow: auto;
+}
+  </style>
+
+ 	<header>
+
+		<h1>  JE SUIS ADMIN  </h1>
+
+		<br />
+    <a href="{{ path('admin_add_event') }}" class="btn btn-success btn-lg">  LISTE DES EVENEMENTS  </a>
+    <a href="{{ path('admin_add_user') }}"class="ml-5 btn btn-success btn-lg">LISTE DES UTILISATEURS</a>
+    <br>
+    <br>
+    <br>
+
+</div>
+	</header>
 {% endblock %}
