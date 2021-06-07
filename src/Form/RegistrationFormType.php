@@ -21,7 +21,6 @@ class RegistrationFormType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('age')
-
             ->add('licence')
            // ->add('toto')
 
