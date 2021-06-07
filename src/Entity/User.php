@@ -67,7 +67,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="date",nullable=true)
      */
-    private $age;
+    private $datenaissance;
 
     public function __construct()
     {
@@ -233,14 +233,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getAge(): ?\DateTimeInterface
+    public function getdatenaissance(): ?\DateTimeInterface
     {
-        return $this->age;
+        return $this->datenaissance;
     }
 
-    public function setAge(\DateTimeInterface $age): self
+    public function setdatenaissance(\DateTimeInterface $datenaissance): self
     {
-        $this->age = $age;
+        $this->datenaissance = $datenaissance;
 
         return $this;
     }
