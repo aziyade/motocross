@@ -2,6 +2,7 @@
 
 {% block title %}Hello HomeController!{% endblock %}
 
+ {% block navbar %}{% endblock %}
 {% block body %}
   <style>
     body
@@ -29,7 +30,7 @@ background-image: url({{ relative_path('http://localhost/image/imgfond2c.jpg') }
 		<h2> Veuillez vous identifier ou creer un compte </h2>
 		<br />
     <a href="{{ relative_path('http://localhost/motocross/public/login') }}" class="btn btn-success btn-lg">  je m'identifie  </a>
-    <a href="{{ relative_path('http://localhost/motocross/public/register') }}" class="btn btn-success btn-lg">je crée mon compte</a>
+    <a href="{{ relative_path('http://localhost/motocross/public/register') }}" class="ml-5 btn btn-success btn-lg">je crée mon compte</a>
     <br>
     <br>
     <br>
