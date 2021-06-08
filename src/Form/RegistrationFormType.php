@@ -21,14 +21,10 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('nom')
             ->add('prenom')
-<<<<<<< HEAD
-            ->add('age')
-=======
             ->add('datenaissance', DateType::class, [
                
                 'widget' => 'single_text',
             ])
->>>>>>> 38d49726e151342962fc5960c9d03e8b47448734
             ->add('licence')
            // ->add('toto')
 
