@@ -9,6 +9,8 @@
         <tr>
             <th>Nom</th>
             <th>Prénom</th>
+            <th>Licence</th>
+            <th>date Naissance</th>
             <th></th>
             <th>Action</th>
         </tr>
@@ -18,6 +20,8 @@
         <tr>
             <td>{{ user.nom }}</td>
             <td>{{ user.prenom }}</td>
+            <td>{{ user.licence }}</td>
+             <td>{{ user.datenaissance|date("m/d/Y") }}</td>
             <td></td>
             <td></td>
         </tr>
