@@ -3,29 +3,107 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
+
+  <div class="container">
+    <div class="row" id="app">
+      <div class="offset-3 col-6">
+        <h2>
+          ajouter un utilisateur:</h2>
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <input v-model="nom" class="form-control">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <input v-model="nom" class="form-control">
+          </div>
+        </div>
+        <br>   
+        <div class="row">
+          <div class="col-6">
+            <input v-model="nom" class="form-control">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <input v-model="nom" class="form-control">
+          </div>
+        </div>
+                <br>
+        <div class="row">
+          <div class="col-6">
+            <input v-model="nom" class="form-control">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <input v-model="nom" class="form-control">
+          </div>
+        </div>
+        <br>   
+        <div class="row">
+          <div class="col-6">
+            <input v-model="nom" class="form-control">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <input v-model="nom" class="form-control">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-2">
+        <a href="{{ relative_path('http://localhost/motocross/public/login') }}" 
+        class="btn btn-success btn-lg fa fa-plus"> </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+
 <h1>Liste utilisateur</h1>
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Licence</th>
-            <th>date Naissance</th>
-            <th></th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for user in users %}
-        <tr>
-            <td>{{ user.nom }}</td>
-            <td>{{ user.prenom }}</td>
-            <td>{{ user.licence }}</td>
-             <td>{{ user.datenaissance|date("m/d/Y") }}</td>
-            <td></td>
-            <td></td>
-        </tr>
-          {% endfor %}
-    </tbody>
+<thead>
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Licence</th>
+    <th>date Naissance</th>
+    <th></th>
+    <th>Action</th>
+  </tr>
+</thead>
+<tbody>
+  {% for user in users %}
+    <tr>
+      <td>{{ user.nom }}</td>
+      <td>{{ user.prenom }}</td>
+      <td>{{ user.licence }}</td>
+      <td>{{ user.datenaissance|date("m/d/Y") }}</td>
+      <td></td>
+      <td>
+      <a href="{{ relative_path('http://localhost/motocross/public/login') }}" 
+      class="btn btn-primary btn-lg fa fa-check"> </a>
+
+        &nbsp;
+     <a href="{{ relative_path('http://localhost/motocross/public/login') }}" 
+      class="btn btn-danger btn-lg fa fa-trash"> </a>
+
+      </td>
+    </tr>
+  {% endfor %}
+</tbody>
 </table>
 {% endblock %}
