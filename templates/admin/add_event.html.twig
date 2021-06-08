@@ -4,22 +4,48 @@
 
 {% block body %}
 
+
   <div class="container">
     <div class="row" id="app">
       <div class="offset-3 col-6">
         <h2>
-          ajouter un événement:</h2>
+          ajouter un événements:</h2>
         <br>
         <div class="row">
           <div class="col-6">
+          <label for="nom">Type :</label>
             <input v-model="nom" class="form-control">
           </div>
-          <div class="col-2">
-           <a href="{{ relative_path('http://localhost/motocross/public/login') }}" 
-           class="btn btn-success btn-lg fa fa-plus"> </a>
-
-            </button>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6">
+          <label for="nom">Titre :</label>
+            <input v-model="nom" class="form-control">
           </div>
+        </div>
+        <br>   
+        <div class="row">
+          <div class="col-6">
+          <label for="nom">Date :</label>
+            <input v-model="nom" class="form-control">
+          </div>
+        </div>
+                <br>
+        <div class="row">
+          <div class="col-6">
+         <label for="nom">Description :</label>
+            <input v-model="nom" class="form-control">
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-2">
+        <a href="{{ relative_path('http://localhost/motocross/public/login') }}" 
+        class="btn btn-success btn-lg fa fa-plus"> </a>
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -27,6 +53,7 @@
 </div>
 </div>
 
+<br>
 <br>
 
 <h1>Liste des événements</h1>
