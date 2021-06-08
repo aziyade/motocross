@@ -22,7 +22,8 @@ class EventType extends AbstractType
                 [
                     'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
                     'hour' => 'Heure', 'minute' => 'Minute', 'second' => 'Seconde',
-                ]
+                ],
+                'choice_translation_domain' => true,
             ]);
     }
 

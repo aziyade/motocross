@@ -3,32 +3,29 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-
-
-<h1>Liste des événements</h1>
+<h1>Liste utilisateur</h1>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Type</th>
-            <th>Titre</th>
-            <th>Date</th>
-            <th>Description</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Licence</th>
+            <th>date Naissance</th>
             <th></th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-    {% for event in events %}
+    {% for user in users %}
         <tr>
-            <td>{{ event.type }}</td>
-            <td>{{ event.titre }}</td>
-            <td>{{ event.DateEvenement|date("m/d/Y") }}</td>
-            <td>{{ event.description }}</td>
+            <td>{{ user.nom }}</td>
+            <td>{{ user.prenom }}</td>
+            <td>{{ user.licence }}</td>
+             <td>{{ user.datenaissance|date("m/d/Y") }}</td>
             <td></td>
             <td></td>
         </tr>
           {% endfor %}
     </tbody>
 </table>
-
 {% endblock %}
