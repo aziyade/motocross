@@ -3,5 +3,32 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-<h1>Ajouter event</h1>
+
+
+<h1>Liste des événements</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Titre</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th></th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for event in events %}
+        <tr>
+            <td>{{ event.type }}</td>
+            <td>{{ event.titre }}</td>
+            <td>{{ event.DateEvenement|date("m/d/Y") }}</td>
+            <td>{{ event.description }}</td>
+            <td></td>
+            <td></td>
+        </tr>
+          {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}

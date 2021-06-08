@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\UserRepository;
+use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,7 +41,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-               /**
+     /**
      * @Route("/admin/liste-user", name="admin_liste_user")
      */
     public function listeUser(UserRepository $repo): Response
@@ -51,4 +52,17 @@ class AdminController extends AbstractController
             'users' => $repo->findAll(),
         ]);
     }
+
+     /**
+     * @Route("/admin/add-event", name="admin_add_event")
+     */
+    public function ListeEvent(EventRepository $repo): Response
+    {
+        
+        
+        return $this->render('admin/add_event.html.twig', [
+            'events' => $repo->findAll(),
+        ]);
+    }
+    
 }
