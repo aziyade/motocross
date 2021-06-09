@@ -64,5 +64,26 @@ class AdminController extends AbstractController
             'events' => $repo->findAll(),
         ]);
     }
-    
+
+
+    /**
+     * @Route("/admin/add-event", name="admin_add_event")
+     */
+    public function registerEvent(Request $request): Response
+    {
+        $event = new Event();
+        $form = $this->createForm(RegistrationFormType::class, $event);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+          
+            $event->setTypes(['TYPE_EVENT']);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($event);
+            $entityManager->flush();
+            // do anything else you need here, like send an email
+
+            return $this->redirectToRoute('app_login');
+        }
+    }
 }

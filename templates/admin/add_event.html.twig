@@ -5,37 +5,37 @@
 {% block body %}
 
 
-  <div class="container">
+  <!--<div class="container">
     <div class="row" id="app">
       <div class="offset-3 col-6">
         <h2>
-          ajouter un événements:</h2>
+          ajouter un événement:</h2>
         <br>
         <div class="row">
           <div class="col-6">
-          <label for="nom">Type :</label>
-            <input v-model="nom" class="form-control">
+          <label for="type">Type :</label>
+            <input id="type" class="form-control">
           </div>
         </div>
         <br>
         <div class="row">
           <div class="col-6">
-          <label for="nom">Titre :</label>
-            <input v-model="nom" class="form-control">
+          <label for="titre">Titre :</label>
+            <input id="titre" class="form-control">
           </div>
         </div>
         <br>   
         <div class="row">
           <div class="col-6">
-          <label for="nom">Date :</label>
-            <input v-model="nom" class="form-control">
+          <label for="date">Date :</label>
+            <input id="date" class="form-control">
           </div>
         </div>
                 <br>
         <div class="row">
           <div class="col-6">
-         <label for="nom">Description :</label>
-            <input v-model="nom" class="form-control">
+         <label for="description">Description :</label>
+            <input id="description" class="form-control">
           </div>
         </div>
         <br>
@@ -55,6 +55,18 @@
 
 <br>
 <br>
+-->
+ <h1 class="mt-5"> ajouter un événement:</h1>
+  <div class="col-4">
+    {{ form_start(event) }}
+        {{ form_row(event.type) }}
+        {{ form_row(event.titre) }}
+        {{ form_row(event.date) }}
+        {{ form_row(event.description) }}
+        
+        <button type="submit" class="btn">Register </button>
+    {{ form_end(EventType) }}
+    </div>
 
 <h1>Liste des événements</h1>
 <table class="table table-striped">
