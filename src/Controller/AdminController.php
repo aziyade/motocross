@@ -2,10 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Event;
+use App\Form\EventType;
 use App\Repository\UserRepository;
 use App\Repository\EventRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -23,10 +27,25 @@ class AdminController extends AbstractController
         /**
      * @Route("/admin/add-event", name="admin_add_event")
      */
-    public function addEvent(): Response
+    public function addEvent(Request $request, ManagerRegistry $managerRegistry): Response
     {
+        $event = new Event();
+
+        // Crée le formulaire
+        $form = $this->createForm(EventType::class, $event);
+        // Prend en charge les données du formulaire
+        $form->handleRequest($request);
+        // Vérifications
+        if($form->isSubmitted() && $form->isValid()){
+            // Persiste
+            $this->entityManager->persist($event);
+            // Envoie en base de donnée
+            $this->entityManager->flush();
+            // Redirige à la liste des addEvent
+            return $this->redirectToRoute('admin_liste_event');
+        }
         return $this->render('admin/add_event.html.twig', [
-            'controller_name' => 'AdminController',
+            'eventForm' => $form->createView() 
         ]);
     }
             /**
@@ -54,13 +73,13 @@ class AdminController extends AbstractController
     }
 
      /**
-     * @Route("/admin/add-event", name="admin_add_event")
+     * @Route("/admin/admin-liste-event", name="admin_liste_event")
      */
     public function ListeEvent(EventRepository $repo): Response
     {
         
         
-        return $this->render('admin/add_event.html.twig', [
+        return $this->render('event/index.html.twig', [
             'events' => $repo->findAll(),
         ]);
     }
@@ -69,10 +88,10 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/add-event", name="admin_add_event")
      */
-    public function registerEvent(Request $request): Response
+  /*  public function registerEvent(Request $request): Response
     {
         $event = new Event();
-        $form = $this->createForm(RegistrationFormType::class, $event);
+        $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -85,5 +104,5 @@ class AdminController extends AbstractController
 
             return $this->redirectToRoute('app_login');
         }
-    }
+    }*/
 }

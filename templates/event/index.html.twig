@@ -1,20 +1,113 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EventController!{% endblock %}
+{% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/motocross/src/Controller/EventController.php'|file_link(0) }}">src/Controller/EventController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/motocross/templates/event/index.html.twig'|file_link(0) }}">templates/event/index.html.twig</a></code></li>
-    </ul>
+  <!--<div class="container">
+    <div class="row" id="app">
+      <div class="offset-3 col-6">
+        <h2>
+          ajouter un événement:</h2>
+        <br>
+        <div class="row">
+          <div class="col-6">
+          <label for="type">Type :</label>
+            <input id="type" class="form-control">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6">
+          <label for="titre">Titre :</label>
+            <input id="titre" class="form-control">
+          </div>
+        </div>
+        <br>   
+        <div class="row">
+          <div class="col-6">
+          <label for="date">Date :</label>
+            <input id="date" class="form-control">
+          </div>
+        </div>
+                <br>
+        <div class="row">
+          <div class="col-6">
+         <label for="description">Description :</label>
+            <input id="description" class="form-control">
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-2">
+        <a href="{{ relative_path('http://localhost/motocross/public/login') }}" 
+        class="btn btn-success btn-lg fa fa-plus"> </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+
+<br>
+<br>
+-->
+
+<h1>Liste des événements</h1>
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Type</th>
+    <th>Titre</th>
+    <th>Date</th>
+    <th>Description</th>
+    <th></th>
+    <th>Action</th>
+  </tr>
+</thead>
+<tbody>
+  {% for event in events %}
+    <tr>
+      <td>{{ event.type }}</td>
+      <td>{{ event.titre }}</td>
+      <td>{{ event.DateEvenement|date("m/d/Y") }}</td>
+      <td>{{ event.description }}</td>
+      <td></td>
+      <td>
+      <a href="{{ relative_path('http://localhost/motocross/public/login') }}" 
+      class="btn btn-primary btn-lg fa fa-check"> </a>
+
+        &nbsp;
+     <a href="{{ relative_path('http://localhost/motocross/public/login') }}" 
+      class="btn btn-danger btn-lg fa fa-trash"> </a>
+
+      </td>
+
+<!--
+								<td>
+									<button 
+									@click="modifier(index)"
+									class="btn btn-primary">
+										<i class="fa fa-check"></i>
+									</button>
+										&nbsp;
+									<button 
+									@click="enlever(index)"
+									class="btn btn-danger del">
+											<i class="fa fa-trash"></i>
+									</button>
+								</td>
+-->
+
+    </tr>
+  {% endfor %}
+</tbody>
+</table>
+<a href="{{ path('admin_add_event') }}">
+<button class="btn btn-primary">Ajouter un événement</button>
+</a>
 {% endblock %}

@@ -39,6 +39,5 @@ class EventController extends AbstractController
 
         
     }
-
  
 }
