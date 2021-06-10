@@ -33,16 +33,23 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
+<<<<<<< HEAD
         <a class="nav-link" href="../index.php">Acceuil <span class="sr-only">(current)</span></a>
+=======
+        <a class="nav-link" href={{path('index')}}>Acceuil <span class="sr-only">(current)</span></a>
+>>>>>>> db542749a336663e3628ebed0c11dd4bf9a72863
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href={{path('choose_event')}}>événement</a>
       </li>
     </ul>
     {% if is_granted('ROLE_ADMIN') %} 
     <a href=" {{ path('admin_home') }}" type="button" class="btn btn-outline-danger mr-3">Admin</a>
     {% endif %}
+    {% if app.user %}
     <a href=" {{ path('app_logout') }}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</a>
+    {% endif %}
+    
 
   </div>
   </div>
