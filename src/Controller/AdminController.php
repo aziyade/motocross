@@ -6,6 +6,7 @@ use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\UserRepository;
 use App\Repository\EventRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,7 +28,7 @@ class AdminController extends AbstractController
         /**
      * @Route("/admin/add-event", name="admin_add_event")
      */
-    public function addEvent(Request $request, ManagerRegistry $managerRegistry): Response
+    public function addEvent(Request $request, ManagerRegistry $managerRegistry, EntityManagerInterface $em ): Response
     {
         $event = new Event();
 
@@ -38,15 +39,15 @@ class AdminController extends AbstractController
         // Vérifications
         if($form->isSubmitted() && $form->isValid()){
             // Persiste
-            $this->entityManager->persist($event);
+            $em->persist($event);
             // Envoie en base de donnée
-            $this->entityManager->flush();
+            $em->flush();
             // Redirige à la liste des addEvent
             return $this->redirectToRoute('admin_liste_event');
         }
         return $this->render('admin/add_event.html.twig', [
             'eventForm' => $form->createView() 
-        ]);
+        ]); 
     }
             /**
      * @Route("/admin/add-user", name="admin_add_user")
