@@ -42,7 +42,10 @@
     {% if is_granted('ROLE_ADMIN') %} 
     <a href=" {{ path('admin_home') }}" type="button" class="btn btn-outline-danger mr-3">Admin</a>
     {% endif %}
+    {% if app.user %}
     <a href=" {{ path('app_logout') }}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</a>
+    {% endif %}
+    
 
   </div>
   </div>
