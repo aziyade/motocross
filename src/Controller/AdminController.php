@@ -9,10 +9,11 @@ use App\Repository\EventRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Validator\Constraints\All;
 
 class AdminController extends AbstractController
 {
@@ -49,13 +50,61 @@ class AdminController extends AbstractController
             'eventForm' => $form->createView() 
         ]); 
     }
+
+     /**
+     * @Route("/admin/delete-event/{id}", name="event_delete", methods={"POST"})
+     * 
+     */
+    /*
+        public function deleteEvent(Request $request, Event $event): Response
+        {
+            $event = new Event();
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($event);
+            $em->flush();
+
+            return $this->redirectToRoute('event_index');
+            return new Response('événement supprimé');
+        }
+*/
+
+/**
+     * @Route("/admin/event/delete/{event}",name="admin_event_delete")
+     */
+    public function deleteEvent(Event $event, EntityManagerInterface $em)
+    {
+        $builder = $this->createFormBuilder();
+        $builder->add('Valider', SubmitType::class);
+
+        $em->remove($event);
+        $em->flush();
+
+        return $this->redirectToRoute('admin_home');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
             /**
      * @Route("/admin/add-user", name="admin_add_user")
      */
     public function addUser(): Response
     {
         
-        
+    
         return $this->render('admin/add_user.html.twig', [
             'controller_name' => 'AdminController',
         ]);
