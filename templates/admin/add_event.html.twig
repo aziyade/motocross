@@ -1,12 +1,29 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Event{% endblock %}
+
 {% block body %}
-  {{ form_start(eventForm) }}
-   
-   
+  <div class="container">
+    <div class="row">
+      <!-- 100% 12 colonnes -->
 
-{{ form_end(eventForm) }}
+      <div class="offset-2 col-8">
+        <h3>Ajouter un évènement</h3>
+        {# <form ...>  #}
+        {{ form_start(eventForm) }}
+        {# afficher tous les champs #}
+        {{ form_widget(eventForm) }}    
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-edit"></i>
+          Ajouter
+        </button>
+        <br><br>
+        {# </form>  #}
+        {{ form_end(eventForm) }}
+      </div>
+    </div>
+  </div>
 
-   <a href="{{ path('add_event') }}">
-<button class="btn btn-primary">Ajouter un événement</button>
-</a>
+
+
 {% endblock %}
