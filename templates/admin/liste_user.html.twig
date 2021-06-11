@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
+{% block javascripts %}
+        <script src="../../public/js/app.js" crossorigin="anonymous"></script>
+        {% endblock %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %} Liste des participants {% endblock %}
 
 {% block body %}
-<h1>Liste utilisateur</h1>
+<h1>Liste des participants</h1>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -26,6 +29,9 @@
             <td></td>
         </tr>
           {% endfor %}
+          <form>
+  <input id="impression" name="impression" type="button" onclick="imprimer_page()" value="Imprimer cette page" />
+</form>
     </tbody>
 </table>
 {% endblock %}
