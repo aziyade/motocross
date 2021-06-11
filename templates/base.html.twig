@@ -41,6 +41,9 @@
       <li class="nav-item">
         <a class="nav-link" href={{path('choose_event')}}>événement</a>
       </li>
+            <li class="nav-item">
+        <a class="nav-link" href="{{ relative_path('https://www.facebook.com/auribail.motosport/') }}">facebook</a>
+      </li>
     </ul>
     {% if is_granted('ROLE_ADMIN') %} 
     <a href=" {{ path('admin_home') }}" type="button" class="btn btn-outline-danger mr-3">Admin</a>
