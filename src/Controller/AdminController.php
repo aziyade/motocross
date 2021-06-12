@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\UserRepository;
@@ -84,6 +85,22 @@ class AdminController extends AbstractController
 
 
 
+/**
+     * @Route("/admin/event/change/{event}",name="admin_event_change")
+     */
+
+    public function editEvent(Event $event,EntityManagerInterface $em): Response
+    {
+        $builder = $this->createFormBuilder();
+        $builder->add('Valider', SubmitType::class);
+
+        $em->persist($event);
+        $em->flush();
+        $tab["info"] = "ok";
+         return $this->redirectToRoute('admin_liste_event');
+    }
+
+
 
 
 
@@ -109,6 +126,24 @@ class AdminController extends AbstractController
             'controller_name' => 'AdminController',
         ]);
     }
+
+    
+/**
+     * @Route("/admin/user/delete/{user}",name="admin_user_delete")
+     */
+    public function deleteUser(User $user, EntityManagerInterface $em)
+    {
+        $builder = $this->createFormBuilder();
+        $builder->add('Valider', SubmitType::class);
+
+        $em->remove($user);
+        $em->flush();
+
+        return $this->redirectToRoute('admin_liste_user');
+    }
+
+
+
 
      /**
      * @Route("/admin/liste-user", name="admin_liste_user")

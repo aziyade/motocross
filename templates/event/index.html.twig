@@ -78,7 +78,7 @@
       <td>{{ event.description }}</td>
       <td></td>
       <td>
-      <a href="{{ relative_path('http://localhost/motocross/public/login') }}" 
+      <a href="{{ path('admin_event_change', {'event': event.id}) }}" 
       class="btn btn-primary btn-lg fa fa-check"> </a>
 
         &nbsp;
