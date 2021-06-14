@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Event{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row">
+      <!-- 100% 12 colonnes -->
+
+      <div class="offset-2 col-8">
+        <h3>Modifier un évènement</h3>
+        {# <form ...>  #}
+        {{ form_start(eventForm) }}
+        {# afficher tous les champs #}
+        {{ form_widget(eventForm) }}    
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-edit"></i>
+          modifier
+        </button>
+        <br><br>
+        {# </form>  #}
+        {{ form_end(eventForm) }}
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
