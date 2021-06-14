@@ -36,15 +36,23 @@ class EventRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Event
+    /*  select* 
+        from event
+        where type = "adulte"
+        order by date_evenement ASC*/
+    public function recuEventByType($type) : ?Array // si je ne sais pas ce quil retourne: enlever ":..."  et ? permet un retour nul
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
+        
+      //  $type = $event->getdate_evenement();
+        
+        return $this->createQueryBuilder('e') //=from event
+        //
+            ->andWhere('e.type = :type') //  where type = "adulte"
+            ->setParameter('type', $type)
+            ->orderBy('e.DateEvenement', 'ASC') //  order by date_evenement ASC*/
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
         ;
     }
-    */
+    
 }

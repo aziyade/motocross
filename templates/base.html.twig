@@ -14,8 +14,14 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+
+
+ 
+ 
             
         {% endblock %}
+
+
 
         {% block javascripts %}
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -74,12 +80,12 @@
     </div>
 
        {% block footer %}
-
-       <div class="bg-dark text-white py-5">
-	 <!--<img src="./img/Chuck-Norris-Net-Worth.jpg" width="180" height="100" class="d-inline-block align-top pl-4" alt=""> -->             
+         <footer class="footer">
+       <div class="bg-dark text-white py-5  position: absolute bottom: 0">
+	 <!-- <img src="https://acegif.com/wp-content/gifs/race-flag-10.gif" width="180" height="100" class="d-inline-block align-top pl-4" alt=""> -->             
 	<p class="text-center"> Copyright c Mx Trail 2021</p>
     </div>
-        
+        </div>
         {% endblock %}
 
     </body>
