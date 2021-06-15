@@ -2,8 +2,21 @@
 
 {% block title %}Hello AdminController!{% endblock %}
 
+
+
 {% block body %}
 
+  <style>
+
+footer 
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+  </style>
 
   <!--<div class="container">
     <div class="row" id="app">
@@ -58,6 +71,16 @@
 -->
 
 <h1>Liste des événements</h1>
+
+				{% for label, messages in app.flashes %}
+				    {% for message in messages %}
+				    	<div class="alert alert-{{ label }}" role="alert">
+  						 {{ message }}
+						</div>
+				        
+				    {% endfor %}
+				{% endfor %}
+
 <table class="table table-striped">
 <thead>
   <tr>

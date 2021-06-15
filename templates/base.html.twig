@@ -9,6 +9,20 @@
    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+  <style>
+
+footer 
+{
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+  </style>
+
+
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
@@ -43,7 +57,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href={{path('index')}}>Acceuil <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href={{path('index')}}>Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href={{path('choose_event')}}>événement</a>

@@ -85,24 +85,30 @@ class AdminController extends AbstractController
 
 
 
+
 /**
      * @Route("/admin/event/change/{event}",name="admin_event_change")
      */
 
-    public function editEvent(Event $event,EntityManagerInterface $em): Response
+    public function editEvent( Request $request, EntityManagerInterface $em,  Event $event): Response
     {
-        $builder = $this->createFormBuilder();
-        $builder->add('Valider', SubmitType::class);
+       
+        // on associe le bo au formulaire
+        $form = $this->createForm(EventType::class, $event);
+        // traiter le formulaire
+        // je viens hydrater l'objet $personne
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){  //si le form est envoyé et si valide
+           $message = "L'événement a été modifié : ".$event->getTitre();
+            $this->addFlash('success' ,$message);
+            $em->flush();
+            return $this->redirectToRoute('admin_liste_event'); 
+        }
 
-        $em->persist($event);
-        $em->flush();
-        $tab["info"] = "ok";
-         return $this->redirectToRoute('admin_liste_event');
+       return $this->render('admin/edit_event.html.twig',[
+            'eventForm' => $form->createView()
+        ]);
     }
-
-
-
-
 
 
 
