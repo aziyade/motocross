@@ -53,20 +53,16 @@ class EventController extends AbstractController
 
 
          /**
-     * @Route("admin/{id}", name="inscription_delete", methods={"DELETE"})
+     * @Route("admin/delete/{inscription}", name="inscription_delete", methods={"GET"})
      */
-    public function desinscriptionEvent(User $user, EventRepository $repoE, EntityManagerInterface $em, $type ): Response
+    public function desinscriptionEvent(Inscription $inscription,  EntityManagerInterface $em): Response
     {
 
-        $evenement = $repoE->recuEventByType($type); 
+      
+            $em->remove($inscription);
+            $em->flush();
 
-        if ($this->isCsrfTokenValid('delete'.$inscription->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($inscription);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('inscription_index');
+        return $this->redirectToRoute('admin_home');
     }
 
 
