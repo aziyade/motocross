@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {{app.user.prenom}} {{app.user.nom}}{% endblock %}
+
+{% block body %}
+    Profil de {{app.user.prenom}} {{app.user.nom}}
+    <div>Nom : </div>
+    <div>{{app.user.nom}} </div>
+    <div>Prenom : </div>
+    <div>{{app.user.prenom}} </div>
+    <div>Mail : </div>
+    <div>{{app.user.email}} </div>
+
+    <a href="{{ path('user_profil_modifier') }}" class="btn-blue">Modifier le profil</a>
+    <br>
+    <a href="#" class="btn-blue">Modifier le mot de passe</a>
+
+{% endblock %}

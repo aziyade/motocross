@@ -1,0 +1,13 @@
+{% extends 'user.html.twig' %}
+
+{% block title %}Modification du profil de {{app.user.prenom}} {{app.user.nom}}{% endblock %}
+
+{% block body %}
+   Modification du profil de {{app.user.prenom}} {{app.user.nom}}
+    {{form(form)}}
+
+    <a href="#" class="btn-blue">Modifier le profil</a>
+    <br>
+    <a href="#" class="btn-blue">Modifier le mot de passe</a>
+
+{% endblock %}
