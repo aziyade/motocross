@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Liste des événements{% endblock %}
 
 
 
@@ -102,11 +102,17 @@ footer
       <td></td>
       <td>
       <a href="{{ path('admin_event_change', {'event': event.id}) }}" 
-      class="btn btn-primary btn-lg fa fa-check"> </a>
+      class="btn btn-lg fa fa-edit bg-warning"> </a>
 
-        &nbsp;
+        &nbsp;<!--equivalent d'un espce-->
      <a href="{{ path('admin_event_delete', {'event': event.id}) }}" 
       class="btn btn-danger btn-lg fa fa-trash"> </a>
+       
+               &nbsp;<!--equivalent d'un espce-->
+     <a href="{{ path('admin_event_users', {'event': event.id}) }}" 
+      class="btn bg-info btn-lg fa fa-eye"></i>
+ </a>
+    
 
       </td>
 

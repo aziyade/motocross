@@ -46,9 +46,27 @@ class EventController extends AbstractController
             // Envoie en base de donnée
         $em->flush();
             // Redirige à la liste des addEvent
-        $this->addFlash("success", "Félicitation vous étes inscrit");
+        $this->addFlash("success", "Félicitation vous êtes inscrits");
 
         return $this->redirectToRoute('choose_event'); 
+    }
+
+
+         /**
+     * @Route("admin/{id}", name="inscription_delete", methods={"DELETE"})
+     */
+    public function desinscriptionEvent(User $user, EventRepository $repoE, EntityManagerInterface $em, $type ): Response
+    {
+
+        $evenement = $repoE->recuEventByType($type); 
+
+        if ($this->isCsrfTokenValid('delete'.$inscription->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($inscription);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('inscription_index');
     }
 
 

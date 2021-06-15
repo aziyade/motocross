@@ -2,7 +2,8 @@
 
 {% block title %}Hello HomeController!{% endblock %}
 
- {% block navbar %}{% endblock %}
+ {# block navbar %}{% endblock %}     //block vide pour ne pas afficher un element censé etre present partout
+ #}
 {% block body %}
   <style>
     body
@@ -27,35 +28,29 @@ background-image: url({{ relative_path('./image/imgfond2c.jpg') }});
  	<header>
 
 		<h1>  BIENVENUE SUR LE SITE DU MOTOCROSS D'AURIBAIL  </h1>
-		<h2> Veuillez vous identifier ou creer un compte </h2>
+		<h2> Veuillez vous identifier ou créer un compte </h2>
 		<br />
-    <a href="{{ relative_path('http://localhost/motocross/public/login') }}" class="btn btn-success btn-lg">  je m'identifie  </a>
-    <a href="{{ relative_path('http://localhost/motocross/public/register') }}" class="ml-5 btn btn-success btn-lg">je crée mon compte</a>
+    <br />
+    <a href="{{ relative_path('http://localhost/motocross/public/login') }}" class="btn btn-success btn-lg">  Je m'identifie  </a>
+    &nbsp;
+    <a href="{{ relative_path('http://localhost/motocross/public/register') }}" class="ml-5 btn btn-success btn-lg">Je crée mon compte</a>
+    &nbsp;
+     <a href="{{ relative_path('http://localhost/motocross/public/choose/event') }}" class="ml-5 btn btn-success btn-lg">S'inscrire au prochain événement</a>
     <br>
     <br>
     <br>
     <br>
-	<p>prochain entrainement : le "date" pour la session adulte</p>
-  <div id="countdown">
-    <strong>Temps restant</strong> :
-    <span id="countdown_day" >--</span> jours
-    <span id="countdown_hour">--</span> heures
-    <span id="countdown_min" >--</span> minutes
-    <span id="countdown_sec" >--</span> secondes
-</div> 
+
+   
+	<p> Session <strong>ADULTE</strong> : prochain entraînement : le {{event_adulte.DateEvenement|format_datetime('short', 'short', locale='fr')}} </p>
+
+    <br>
+    <br>
+  <p>Session <strong>JUNIOR</strong> : prochain entraînement : le {{event_junior .DateEvenement|format_datetime('short', 'short', locale='fr')}} </p>
+
+
 <br>
-  <p>prochain entrainement : le "date" pour la session junior</p>
-  <div id="countdown">
-    <strong>Temps restant</strong> :
-    <span id="countdown_day" >--</span> jours
-    <span id="countdown_hour">--</span> heures
-    <span id="countdown_min" >--</span> minutes
-    <span id="countdown_sec" >--</span> secondes
-</div>
-<br>
-  <p class="lead">
-    <a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
-  </p>
+
 </div>
 	</header>
 

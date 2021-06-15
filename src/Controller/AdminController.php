@@ -110,6 +110,18 @@ class AdminController extends AbstractController
         ]);
     }
 
+/**
+     * @Route("/admin/event/view/{event}",name="admin_event_users")
+     */
+
+    public function vueUserInEvent( Event $event): Response
+    {
+       
+   
+       return $this->render('event/event_detail.html.twig',[
+            'event' => $event
+        ]);
+    }
 
 
 

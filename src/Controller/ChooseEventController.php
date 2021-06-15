@@ -43,13 +43,21 @@ class ChooseEventController extends AbstractController
         //create tab($events[0]->getInscription());
         $tab = $events[0]->getInscription();
         $i =0;
-       foreach($tab as $ins){
+        $position =0;
+       foreach($tab as $ins){ // va lire toutes les lignes du tableau une by une
         $i++;   
-        dump($ins->getUser()->getId());
+        //dump($ins->getUser()->getId()); 
+        //si l'utilisateur est dans la liste:
+        if ($ins->getUser()->getId()== $user->getId())
+        {
+            $position=$i;
+        }
        }
         return $this->render('choose_event/index.html.twig', [
             'controller_name' => 'ChooseEventController',
             'age' => $age,
+            'position' => $position,
+
 
             'event'=> $events[0]
         ]);

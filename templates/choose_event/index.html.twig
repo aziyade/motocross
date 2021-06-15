@@ -40,8 +40,8 @@ background-image: url({{ relative_path('http://localhost/image/imgfond2c.jpg') }
 		<br />
 
     <div>
-{% if age > 17  %}
-  
+{% if position == 0  %}
+  {% if age > 17  %}
   
      <a  class="btnr btn-success " href="{{ path('inscription_event', {'user':app.user.id,'type':'adulte'}) }}">  ADULTE </a>
     <br>
@@ -63,6 +63,40 @@ background-image: url({{ relative_path('http://localhost/image/imgfond2c.jpg') }
   <p>Prochain entraînement : le {{event.DateEvenement|format_datetime('short', 'short', locale='fr')}} pour la session junior</p>
   
 {% endif %}
+{% endif %}
+
+{% if position != 0  %}
+{% if age > 17  %}
+  
+     <a  class="btnr btn-danger " href="{{ path('inscription_event', {'user':app.user.id,'type':'adulte'}) }}">Se désinscrire </a>
+    <br>
+    <br>
+    <br>
+    <br>
+	<p>Prochain entraînement : le {{event.DateEvenement|format_datetime('short', 'short', locale='fr')}} pour la session adulte</p>
+{% endif %}
+
+
+
+  {% if age <= 17 %}
+   
+     <a  class="btnr btn-danger " href="{{ path('inscription_event', {'user':app.user.id, 'type':'junior'}) }}">Se désinscrire </a>
+    <br>
+    <br>
+    <br>
+    <br>
+  <p>Prochain entraînement : le {{event.DateEvenement|format_datetime('short', 'short', locale='fr')}} pour la session junior</p>
+  
+{% endif %}
+{% endif %}
+
+
+
+
+
+Votre position : {{position}}
+
+
 
     <br>
     <br>
