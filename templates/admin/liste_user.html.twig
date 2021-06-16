@@ -1,8 +1,40 @@
 {% extends 'base.html.twig' %}
+{% block javascripts %}
+        <script src="../../public/js/app.js" crossorigin="anonymous"></script>
+        {% endblock %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %} Liste des participants {% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
+<h1>Liste des participants</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Licence</th>
+            <th>date Naissance</th>
+            <th></th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.nom }}</td>
+            <td>{{ user.prenom }}</td>
+            <td>{{ user.licence }}</td>
+             <td>{{ user.datenaissance|date("m/d/Y") }}</td>
+            <td></td>
+            <td></td>
+        </tr>
+          {% endfor %}
+          <form>
+  <input id="impression" name="impression" type="button" onclick="imprimer_page()" value="Imprimer cette page" />
+</form>
+    </tbody>
+=======
 
   <!--<div class="container">
     <div class="row" id="app">
@@ -113,5 +145,6 @@
     </tr>
   {% endfor %}
 </tbody>
+>>>>>>> 8cb6ee51ebd36f1e4613e28fc653581da53fd84b
 </table>
 {% endblock %}
