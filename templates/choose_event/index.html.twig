@@ -36,50 +36,78 @@ background-image: url({{ relative_path('http://localhost/image/imgfond2c.jpg') }
 
 	<header>
 
-		<h1>  BIENVENUE {{ app.user.prenom }} {{ app.user.nom }}  {{ age }}</h1>
+		<h1>  BIENVENUE {{ app.user.prenom }} {{ app.user.nom }} </h1>
 		<br />
 
     <div>
-{% if age >= 17 %}
+{% if position == 0  %}
+  {% if age > 17  %}
   
-     <a  class="btnr btn-success ">  ADULTE </a>
+     <a  class="btnr btn-success " href="{{ path('inscription_event', {'user':app.user.id,'type':'adulte'}) }}">  ADULTE </a>
     <br>
     <br>
     <br>
     <br>
-	<p>prochain entrainement : le "date" pour la session adulte</p>
-  <div id="countdown">
-    <strong>Temps restant</strong> :
-    <span id="countdown_day" >--</span> jours
-    <span id="countdown_hour">--</span> heures
-    <span id="countdown_min" >--</span> minutes
-    <span id="countdown_sec" >--</span> secondes
-</div> 
+	<p>Prochain entraînement : le {{event.DateEvenement|format_datetime('short', 'short', locale='fr')}} pour la session adulte</p>
 {% endif %}
 
 
 
-  {% if age < 18 %}
+  {% if age <= 17 %}
    
-    <a class="ml-5 btnr btn-success ">JUNIOR</a>
+     <a  class="btnr btn-success " href="{{ path('inscription_event', {'user':app.user.id, 'type':'junior'}) }}">JUNIOR</a>
     <br>
     <br>
     <br>
     <br>
-  <p>prochain entrainement : le "date" pour la session junior</p>
-  <div id="countdown">
-    <strong>Temps restant</strong> :
-    <span id="countdown_day" >--</span> jours
-    <span id="countdown_hour">--</span> heures
-    <span id="countdown_min" >--</span> minutes
-    <span id="countdown_sec" >--</span> secondes
+  <p>Prochain entraînement : le {{event.DateEvenement|format_datetime('short', 'short', locale='fr')}} pour la session junior</p>
+  
+{% endif %}
 {% endif %}
 
-     <br>
+{% if position != 0  %}
+{% if age > 17  %}
+  
+     <a  class="btnr btn-danger " href="{{ path('inscription_event', {'user':app.user.id,'type':'adulte'}) }}">Se désinscrire </a>
+    <br>
+    <br>
+    <br>
+    <br>
+	<p>Prochain entraînement : le {{event.DateEvenement|format_datetime('short', 'short', locale='fr')}} pour la session adulte</p>
+{% endif %}
+
+
+
+  {% if age <= 17 %}
+   
+     <a  class="btnr btn-danger " href="{{ path('inscription_event', {'user':app.user.id, 'type':'junior'}) }}">Se désinscrire </a>
+    <br>
+    <br>
+    <br>
+    <br>
+  <p>Prochain entraînement : le {{event.DateEvenement|format_datetime('short', 'short', locale='fr')}} pour la session junior</p>
+  
+{% endif %}
+{% endif %}
+
+
+
+
+
+Votre position : {{position}}
+
+
+
+    <br>
     <br>
     <br>  
     
-
+{% for message in app.flashes('success') %}
+<div class='alert alert-success mr-3'> 
+{{ message }}
+</div>
+  
+{% endfor %}
 </div>
 </div> 
 

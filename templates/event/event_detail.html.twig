@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des participants à un événement{% endblock %}
+
+
+
+{% block body %}
+
+  <style>
+
+footer 
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+  </style>
+
+
+
+
+<h1>Evénements</h1>
+
+			<h2>{{ event.titre }}</h2>
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Prenom</th>
+    <th>Nom</th>
+    <th>Action</th>
+
+  </tr>
+   {% for ins  in event.inscription %}
+    <tr>
+      <td>{{ ins.user.prenom }}</td>
+      <td>{{ ins.user.nom }}</td>
+      <td><a href="{{ path('inscription_delete', {'inscription':ins.id}) }}" class="btn btn-danger">del</a></td>
+     
+    
+      </td>
+    </tr>
+  {% endfor %}
+</thead>
+<tbody>
+
+</tbody>
+</table>
+
+{% endblock %}

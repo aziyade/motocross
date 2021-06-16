@@ -4,6 +4,23 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	 
+   	<link rel="stylesheet"
+   href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <style>
+
+footer 
+{
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+  </style>
 
 
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -11,7 +28,14 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+
+
+ 
+ 
+            
         {% endblock %}
+
+
 
         {% block javascripts %}
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -33,10 +57,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href={{path('index')}}>Acceuil <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href={{path('index')}}>Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href={{path('choose_event')}}>événement</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="{{ relative_path('https://www.facebook.com/auribail.motosport/') }}">facebook</a>
       </li>
     </ul>
     {% if is_granted('ROLE_ADMIN') %} 
@@ -60,17 +87,19 @@
 
 
         {% block body %}
+
+        
    
         {% endblock %}
     </div>
 
        {% block footer %}
-
-       <div class="bg-dark text-white py-5">
-	 <!--<img src="./img/Chuck-Norris-Net-Worth.jpg" width="180" height="100" class="d-inline-block align-top pl-4" alt=""> -->             
+         <footer class="footer">
+       <div class="bg-dark text-white py-5  position: absolute bottom: 0">
+	 <!-- <img src="https://acegif.com/wp-content/gifs/race-flag-10.gif" width="180" height="100" class="d-inline-block align-top pl-4" alt=""> -->             
 	<p class="text-center"> Copyright c Mx Trail 2021</p>
     </div>
-        
+        </div>
         {% endblock %}
 
     </body>
