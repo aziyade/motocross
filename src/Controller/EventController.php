@@ -62,7 +62,7 @@ class EventController extends AbstractController
             $em->remove($inscription);
             $em->flush();
 
-        return $this->redirectToRoute('admin_home');
+        return $this->redirectToRoute('admin_liste_event');
     }
 
 
