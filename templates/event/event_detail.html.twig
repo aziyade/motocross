@@ -5,6 +5,9 @@
 
 
 {% block body %}
+{% block javascripts %}
+        <script src="../../public/js/app.js" crossorigin="anonymous"></script>
+        {% endblock %}
 
   <style>
 
@@ -19,7 +22,9 @@ footer
   </style>
 
 
-
+<form>
+  <input id="impression" name="impression" type="button" onclick="imprimer_page()" value="Imprimer cette page" />
+</form>
 
 <h1>Evénements</h1>
 
